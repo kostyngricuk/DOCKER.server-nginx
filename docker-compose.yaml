@@ -1,0 +1,59 @@
+version: '3.3'
+
+services:
+    nginx:
+
+        image: nginx:latest
+
+        container_name: nginx
+
+        ports:
+            - "80:80"
+            - "443:443"
+
+        volumes:
+            - ./docker/nginx/core:/etc/nginx/conf.d
+            - ./docker/nginx/logs:/var/log/nginx/
+            - ./www:/var/www/
+        links:
+            - php
+
+    mysql:
+
+        image: mysql:latest
+
+        ports:
+            - "3306:3306"
+
+        container_name: mysql
+
+        environment:
+            - MYSQL_DATABASE=dockertestcom
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=123
+
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+     
+    php:
+        image: kostyngricuk/php-fpm
+
+        container_name: php-fpm
+
+        volumes:
+            - ./www:/var/www/
+
+        links:
+            - mysql
+
+    phpmyadmin:
+
+        image: phpmyadmin/phpmyadmin
+
+        container_name: phpmyadmin
+
+        ports:
+            - 8080:80
+
+        links:
+            - mysql:db
