@@ -1,14 +1,15 @@
-host: docker-test.com / localhost
+<b>HOST:</b> docker-test.com / localhost<br>
 
-PHP-FPM (kostyngricuk/php-fpm)
-NGINX (nginx:latest)
-MYSQL (mysql:latest)
-PHPMYADMIN (phpmyadmin/phpmyadmin)
+## Images
+<b>PHP-FPM</b> (kostyngricuk/php-fpm)<br>
+<b>NGINX</b> (nginx:latest)<br>
+<b>MYSQL</b> (mysql:latest)<br>
+<b>PHPMYADMIN</b> (phpmyadmin/phpmyadmin)<br>
 
-MYSQL INFO:
-dbname:     dockertestcom
-login:      user
-password:   123
+## MYSQL
+<b>dbname:</b> dockertestcom<br>
+<b>login:</b> user<br>
+<b>password:</b> 123<br>
 
 
 
